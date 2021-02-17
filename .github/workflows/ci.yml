@@ -9,7 +9,7 @@ on:
       - bors/staging
       - bors/trying
   pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
+    types: [opened, synchronize, reopened]
 
 jobs:
   setup:
