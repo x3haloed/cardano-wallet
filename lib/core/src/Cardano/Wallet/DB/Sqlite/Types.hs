@@ -113,6 +113,7 @@ import GHC.Generics
     ( Generic )
 import Network.URI
     ( parseAbsoluteURI )
+import Numeric.Natural
 import System.Random
     ( StdGen )
 import Text.Read
@@ -765,10 +766,14 @@ instance PersistField POSIXTime where
         . posixSecondsToUTCTime
     fromPersistValue (PersistText time) =
         utcTimeToPOSIXSeconds <$>
-            parseTimeM True defaultTimeLocale
+            parseTimeM False defaultTimeLocale
                 (iso8601DateFormat (Just "%H:%M:%S")) (T.unpack time)
     fromPersistValue _ = Left
         "Could not parse POSIX time value"
 
 instance PersistFieldSql POSIXTime where
     sqlType _ = sqlType (Proxy @Text)
+
+instance MonadFail (Either Text) where
+    fail =  Left . T.pack
+

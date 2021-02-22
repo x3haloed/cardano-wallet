@@ -120,6 +120,8 @@ import Data.ByteString
     ( ByteString )
 import Data.Coerce
     ( coerce )
+import Data.Kind
+    ( Type )
 import Data.List.NonEmpty
     ( NonEmpty (..) )
 import Data.Proxy
@@ -426,7 +428,7 @@ instance FromText DerivationPrefix where
 data DerivationType = Hardened | Soft | WholeDomain
 
 -- | An interface for doing hard derivations from the root private key
-class HardDerivation (key :: Depth -> * -> *) where
+class HardDerivation (key :: Depth -> Type -> Type) where
     type AddressIndexDerivationType key :: DerivationType
 
     -- | Derives account private key from the given root private key, using

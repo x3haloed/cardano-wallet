@@ -104,7 +104,7 @@ import Data.Proxy
 import Data.Text
     ( Text )
 import Servant
-    ( (:<|>) (..), (:>), NoContent )
+    ( (:<|>) (..), (:>), NoContent, throwError )
 import Servant.Client
     ( ClientM, client )
 
@@ -330,9 +330,10 @@ addressClient =
                 fmap unApiAddressInspect
                 . _inspectAddress
                 . ApiAddressInspectData
-            , postRandomAddress = \_ _ -> fail "feature unavailable."
-            , putRandomAddress  = \_ _ -> fail "feature unavailable."
-            , putRandomAddresses = \_ _ -> fail "feature unavailable."
+            , postRandomAddress = \_ _ -> error "feature unavailable."
+                -- TODO: Fix. Do we want a JSON error response?
+            , putRandomAddress  = \_ _ -> error "feature unavailable."
+            , putRandomAddresses = \_ _ -> error "feature unavailable."
             }
 
 -- | Produces an 'AddressClient n' working against the /wallets API
