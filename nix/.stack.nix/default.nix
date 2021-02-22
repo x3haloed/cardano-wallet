@@ -3,31 +3,13 @@
     {
       packages = {
         "OddWord" = (((hackage.OddWord)."1.0.2.0").revisions).default;
+        "generic-lens" = (((hackage.generic-lens)."1.1.0.0").revisions).default;
         "command" = (((hackage.command)."0.1.1").revisions).default;
-        "wai-extra" = (((hackage.wai-extra)."3.0.29.1").revisions).default;
-        "primitive-addr" = (((hackage.primitive-addr)."0.1.0.2").revisions).default;
-        "quickcheck-classes" = (((hackage.quickcheck-classes)."0.6.4.0").revisions).default;
-        "quickcheck-classes-base" = (((hackage.quickcheck-classes-base)."0.6.1.0").revisions).default;
-        "servant" = (((hackage.servant)."0.17").revisions).default;
-        "servant-server" = (((hackage.servant-server)."0.17").revisions).default;
-        "servant-client-core" = (((hackage.servant-client-core)."0.17").revisions).default;
-        "servant-client" = (((hackage.servant-client)."0.17").revisions).default;
-        "servant-openapi3" = (((hackage.servant-openapi3)."2.0.0.1").revisions).default;
-        "zip" = (((hackage.zip)."1.3.0").revisions).default;
-        "tls" = (((hackage.tls)."1.5.4").revisions).default;
-        "directory" = (((hackage.directory)."1.3.3.0").revisions).default;
-        "process" = (((hackage.process)."1.6.5.0").revisions).default;
-        "time" = (((hackage.time)."1.8.0.2").revisions).default;
-        "openapi3" = (((hackage.openapi3)."3.0.0.1").revisions).default;
-        "optics" = (((hackage.optics)."0.3").revisions).default;
-        "optics-core" = (((hackage.optics-core)."0.3.0.1").revisions).default;
-        "optics-extra" = (((hackage.optics-extra)."0.3").revisions).default;
-        "optics-th" = (((hackage.optics-th)."0.3.0.2").revisions).default;
-        "optics-vl" = (((hackage.optics-vl)."0.2.1").revisions).default;
-        "insert-ordered-containers" = (((hackage.insert-ordered-containers)."0.2.3.1").revisions).default;
-        "base-compat" = (((hackage.base-compat)."0.11.2").revisions).default;
-        "base-compat-batteries" = (((hackage.base-compat-batteries)."0.11.2").revisions).default;
-        "indexed-profunctors" = (((hackage.indexed-profunctors)."0.1").revisions).default;
+        "quickcheck-state-machine" = (((hackage.quickcheck-state-machine)."0.7.0").revisions).default;
+        "markov-chain-usage-model" = (((hackage.markov-chain-usage-model)."0.0.0").revisions).default;
+        "parsec" = (((hackage.parsec)."3.1.14.0").revisions).default;
+        "Cabal" = (((hackage.Cabal)."3.2.1.0").revisions).default;
+        "async-timer" = (((hackage.async-timer)."0.2.0.0").revisions).default;
         "base16" = (((hackage.base16)."0.1.2.1").revisions).default;
         "base16-bytestring" = (((hackage.base16-bytestring)."1.0.1.0").revisions).default;
         "base58-bytestring" = (((hackage.base58-bytestring)."0.1.0").revisions).default;
@@ -66,8 +48,6 @@
         "primitive" = (((hackage.primitive)."0.7.1.0").revisions).default;
         "prometheus" = (((hackage.prometheus)."2.1.2").revisions).default;
         "protolude" = (((hackage.protolude)."0.3.0").revisions).default;
-        "quickcheck-instances" = (((hackage.quickcheck-instances)."0.3.19").revisions).default;
-        "QuickCheck" = (((hackage.QuickCheck)."2.12.6.1").revisions).default;
         "quiet" = (((hackage.quiet)."0.2").revisions).default;
         "semialign" = (((hackage.semialign)."1.1.0.1").revisions).default;
         "snap-core" = (((hackage.snap-core)."1.0.4.1").revisions).default;
@@ -101,9 +81,6 @@
         cardano-wallet-test-utils = ./cardano-wallet-test-utils.nix;
         cardano-wallet = ./cardano-wallet.nix;
         strict-non-empty-containers = ./strict-non-empty-containers.nix;
-        persistent = ./persistent.nix;
-        persistent-sqlite = ./persistent-sqlite.nix;
-        persistent-template = ./persistent-template.nix;
         cardano-addresses-cli = ./cardano-addresses-cli.nix;
         cardano-addresses = ./cardano-addresses.nix;
         cardano-transactions = ./cardano-transactions.nix;
@@ -163,7 +140,7 @@
         http-client = ./http-client.nix;
         };
       };
-  resolver = "lts-14.25";
+  resolver = "lts-17.4";
   modules = [
     ({ lib, ... }:
       {
