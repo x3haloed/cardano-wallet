@@ -235,7 +235,7 @@ genTxMetadata = do
     i <- vectorOf @Word (length d) arbitrary
     let json = toJSON $ HM.fromList $ zip i d
     case metadataFromJson TxMetadataJsonNoSchema json of
-        Left e -> fail $ show e <> ": " <> show (Aeson.encode json)
+        Left e -> error $ show e <> ": " <> show (Aeson.encode json)
         Right metadata -> pure metadata
 
 -- | Generates a 'TxMetadata' containing only simple values.

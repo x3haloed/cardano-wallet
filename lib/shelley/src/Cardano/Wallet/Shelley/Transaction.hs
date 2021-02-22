@@ -89,7 +89,6 @@ import Cardano.Wallet.Primitive.Types.Tx
     ( SealedTx (..), Tx (..), TxIn (..), TxOut (..), txOutCoin )
 import Cardano.Wallet.Shelley.Compatibility
     ( AllegraEra
-    , CardanoEra (MaryEra)
     , ShelleyEra
     , fromAllegraTx
     , fromMaryTx
@@ -126,6 +125,8 @@ import Data.Generics.Internal.VL.Lens
     ( view )
 import Data.Generics.Labels
     ()
+import Data.Kind
+    ( Type )
 import Data.Quantity
     ( Quantity (..) )
 import Data.Type.Equality
@@ -200,7 +201,7 @@ type EraConstraints era =
 -- | Provide a transaction witness for a given private key. The type of witness
 -- is different between types of keys and, with backward-compatible support, we
 -- need to support many types for one backend target.
-class TxWitnessTagFor (k :: Depth -> * -> *) where
+class TxWitnessTagFor (k :: Depth -> Type -> Type) where
     txWitnessTagFor :: TxWitnessTag
 
 instance TxWitnessTagFor ShelleyKey where

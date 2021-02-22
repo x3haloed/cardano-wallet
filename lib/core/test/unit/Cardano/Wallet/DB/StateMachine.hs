@@ -220,7 +220,6 @@ import Test.StateMachine
     , Reference
     , StateMachine
     , Symbolic
-    , elem
     , forAllCommands
     , forAllParallelCommands
     , forall
@@ -767,7 +766,6 @@ sm db = QSM.StateMachine
     , postcondition = postcondition
     , invariant = Nothing
     , generator = generator
-    , distribution = Nothing
     , shrinker = const shrinker
     , semantics = semantics db
     , mock = symbolicResp

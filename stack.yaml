@@ -23,6 +23,9 @@ extra-deps:
 # We do need these ones:
 - OddWord-1.0.2.0
 - generic-lens-1.1.0.0
+- command-0.1.1
+- quickcheck-state-machine-0.7.0
+- markov-chain-usage-model-0.0.0
 
 # These seem to come from dependencies
 - parsec-3.1.14.0
