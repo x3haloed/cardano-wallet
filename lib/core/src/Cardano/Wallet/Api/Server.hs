@@ -685,6 +685,7 @@ postAccountWallet
         , WalletKey k
         , HasWorkerRegistry s k ctx
         , IsOurs s RewardAccount
+        , Typeable n
         )
     => ctx
     -> MkApiWallet ctx s w
@@ -934,6 +935,7 @@ postIcarusWallet
         , k ~ IcarusKey
         , HasWorkerRegistry s k ctx
         , PaymentAddress n IcarusKey
+        , Typeable n
         )
     => ctx
     -> ByronWalletPostData '[12,15,18,21,24]
@@ -954,6 +956,7 @@ postTrezorWallet
         , k ~ IcarusKey
         , HasWorkerRegistry s k ctx
         , PaymentAddress n IcarusKey
+        , Typeable n
         )
     => ctx
     -> ByronWalletPostData '[12,15,18,21,24]
@@ -974,6 +977,7 @@ postLedgerWallet
         , k ~ IcarusKey
         , HasWorkerRegistry s k ctx
         , PaymentAddress n IcarusKey
+        , Typeable n
         )
     => ctx
     -> ByronWalletPostData '[12,15,18,21,24]
